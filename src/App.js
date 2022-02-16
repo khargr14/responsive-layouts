@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import Grid from '@material-ui/core/Grid';
 import './App.css';
+import PplCard from './PplCard';
 
 function App() {
   const [users, setUsers] = useState([])
@@ -25,16 +27,33 @@ function App() {
     <div className="App">
       <h3>THE TRUE BEAUTY OF MATERIAL UI</h3>
       {/* {users} to see the users--- {.map()} to iterate/ loop through*/}
-      {users.map(user => user.first_name)}
-      <ul>
+      
+      <Grid
+        container
+        spacing={10}
+        style={{padding: '24px'}}
+      ><Grid
+          item
+          xs={12} sm={6} lg={4} xl={3}
+          >
+            {/* mapping into the card */}
+             {users.map(user => 
+            <PplCard
 
+             />)}
+        
+        </Grid>
+      </Grid>
+     <> 
+     <ul>
         {users.map(user => (
           <ul key={user.id}>{user.first_name}</ul>
         ))}
-      </ul>
-
-     
+      </ul><span>Above is the view of list</span>
+     </>
     </div>
+
+    
   );
 }
 
@@ -45,3 +64,16 @@ export default App;
 //   <li key={data.id}> {data.name}</li>
 // ))}
 // </ul>
+
+// ? is there a way to tell with is self closing tabs
+
+//nested grids--- grid within a grid
+
+// 1st grid is outer grid the whole container 
+ // - inside the grid will be the item grid
+ // grid item
+ // xs=12 is our max so we have 12 colums -1 card
+ // sm=6 is our max so we have 6 colums - 2 cards
+ // med=4  is our max so we have 4 colums - 3 cards\
+ // lg=4 is our max so we have 
+ // xl=3 

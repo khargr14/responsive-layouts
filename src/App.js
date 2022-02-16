@@ -27,22 +27,31 @@ function App() {
     <div className="App">
       <h3>THE TRUE BEAUTY OF MATERIAL UI</h3>
       {/* {users} to see the users--- {.map()} to iterate/ loop through*/}
-      
+        
       <Grid
         container
         spacing={10}
         style={{padding: '24px'}}
-      ><Grid
+      >
+        {users.map( users => 
+        <Grid
+          key={users.id}
           item
           xs={12} sm={6} lg={4} xl={3}
           >
             {/* mapping into the card */}
-             {users.map(user => 
+             {/* {users.map(user =>  */}
             <PplCard
-
-             />)}
+            // he had key={users.id}
+                key={users.id}
+                email={users.email}
+                firstName={users.first_name}
+                lastName={users.last_name}
+                avatar={users.avatar}
+             />
         
         </Grid>
+        )}
       </Grid>
      <> 
      <ul>
